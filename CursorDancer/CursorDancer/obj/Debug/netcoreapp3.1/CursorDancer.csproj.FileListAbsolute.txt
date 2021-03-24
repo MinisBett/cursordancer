@@ -1,0 +1,13 @@
+C:\Users\Niklas\source\repos\MinisBett\cursordancer\CursorDancer\CursorDancer\obj\Debug\netcoreapp3.1\CursorDancer.csprojAssemblyReference.cache
+C:\Users\Niklas\source\repos\MinisBett\cursordancer\CursorDancer\CursorDancer\obj\Debug\netcoreapp3.1\CursorDancer.AssemblyInfoInputs.cache
+C:\Users\Niklas\source\repos\MinisBett\cursordancer\CursorDancer\CursorDancer\obj\Debug\netcoreapp3.1\CursorDancer.AssemblyInfo.cs
+C:\Users\Niklas\source\repos\MinisBett\cursordancer\CursorDancer\CursorDancer\obj\Debug\netcoreapp3.1\CursorDancer.csproj.CoreCompileInputs.cache
+C:\Users\Niklas\source\repos\MinisBett\cursordancer\CursorDancer\CursorDancer\bin\Debug\netcoreapp3.1\CursorDancer.exe
+C:\Users\Niklas\source\repos\MinisBett\cursordancer\CursorDancer\CursorDancer\bin\Debug\netcoreapp3.1\CursorDancer.deps.json
+C:\Users\Niklas\source\repos\MinisBett\cursordancer\CursorDancer\CursorDancer\bin\Debug\netcoreapp3.1\CursorDancer.runtimeconfig.json
+C:\Users\Niklas\source\repos\MinisBett\cursordancer\CursorDancer\CursorDancer\bin\Debug\netcoreapp3.1\CursorDancer.runtimeconfig.dev.json
+C:\Users\Niklas\source\repos\MinisBett\cursordancer\CursorDancer\CursorDancer\bin\Debug\netcoreapp3.1\CursorDancer.dll
+C:\Users\Niklas\source\repos\MinisBett\cursordancer\CursorDancer\CursorDancer\bin\Debug\netcoreapp3.1\CursorDancer.pdb
+C:\Users\Niklas\source\repos\MinisBett\cursordancer\CursorDancer\CursorDancer\obj\Debug\netcoreapp3.1\CursorDancer.dll
+C:\Users\Niklas\source\repos\MinisBett\cursordancer\CursorDancer\CursorDancer\obj\Debug\netcoreapp3.1\CursorDancer.pdb
+C:\Users\Niklas\source\repos\MinisBett\cursordancer\CursorDancer\CursorDancer\obj\Debug\netcoreapp3.1\CursorDancer.genruntimeconfig.cache

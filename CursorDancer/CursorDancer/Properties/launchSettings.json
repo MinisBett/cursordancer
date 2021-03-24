@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CursorDancer": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Users\\Niklas\\Desktop\\fortesting.osu defaultdancer RX test.osr"
+    }
+  }
+}
