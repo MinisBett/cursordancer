@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace CursorDancer.Models
@@ -14,19 +15,19 @@ namespace CursorDancer.Models
     /// <summary>
     /// X-coordinate of the cursor
     /// </summary>
-    public int X { get; }
+    public double X { get; }
 
     /// <summary>
     /// Y-Coordinate of the cursor
     /// </summary>
-    public int Y { get; }
+    public double Y { get; }
 
     /// <summary>
     /// The keys pressed
     /// </summary>
     public Keys Keys { get; }
 
-    public ReplayFrame(int offset, int x, int y, Keys keys)
+    public ReplayFrame(int offset, double x, double y, Keys keys)
     {
       Offset = offset;
       X = x;
@@ -40,7 +41,7 @@ namespace CursorDancer.Models
     /// <returns>The string</returns>
     public override string ToString()
     {
-      return $"{Offset}|{X}|{Y}|{(int)Keys}";
+      return $"{Offset}|{X.ToString(new CultureInfo("en-US"))}|{Y.ToString(new CultureInfo("en-US"))}|{(int)Keys}";
     }
   }
 }

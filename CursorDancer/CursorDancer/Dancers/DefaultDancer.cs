@@ -1,6 +1,7 @@
 ﻿using CursorDancer.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 
@@ -24,7 +25,7 @@ namespace CursorDancer.Dancers
       {
         HitObject nextHitObject = beatmapInformations.HitObjects.First(x => x.Offset >= i); // get the next hit object
         frame++;
-        if(frame == 60) // do a replay frame every (fps) frames
+        if(frame == fps) // do a replay frame every (fps) frames
         {
           frame = 0;
           //                         Frame time                    X coordinate     Y coordinate     Keys

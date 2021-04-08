@@ -11,6 +11,7 @@ namespace CursorDancer.Dancers
 
     public static void Initialize()
     {
+      // TODO: use reflection to get classes from CursorDancer.Dancers namespace
       m_cursordancers.Add(new DefaultDancer());
     }
 

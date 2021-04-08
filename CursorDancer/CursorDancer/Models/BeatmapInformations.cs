@@ -34,9 +34,9 @@ namespace CursorDancer.Models
     /// <summary>
     /// The beatmaps hit objects
     /// </summary>
-    public List<HitObject> HitObjects { get; }
+    public HitObject[] HitObjects { get; }
 
-    public BeatmapInformations(double cs, double ar, double od, double hp, List<HitObject> hitObjects)
+    public BeatmapInformations(double cs, double ar, double od, double hp, HitObject[] hitObjects)
     {
       CS = cs;
       AR = ar;

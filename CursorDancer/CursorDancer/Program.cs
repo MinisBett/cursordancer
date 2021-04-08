@@ -8,13 +8,15 @@ using CursorDancer.Dancers;
 using CursorDancer.Models;
 using System.Collections.Generic;
 using SevenZip.Compression.LZMA;
+using System.Globalization;
+using CursorDancer.Enums;
 
 namespace CursorDancer
 {
   class Program
   {
     // fps of the replay
-    public const int REPLAY_FPS = 15;
+    public const int REPLAY_FPS = 60;
 
     static void Main(string[] args)
     {
@@ -129,10 +131,10 @@ namespace CursorDancer
         string[] beatmapLines = beatmap.Replace("\r", "").Split('\n');
 
         // parse the difficulty stuff
-        double cs = double.Parse(beatmapLines.First(x => x.StartsWith("CircleSize")).Split(':')[1]);
-        double ar = double.Parse(beatmapLines.First(x => x.StartsWith("ApproachRate")).Split(':')[1]);
-        double od = double.Parse(beatmapLines.First(x => x.StartsWith("OverallDifficulty")).Split(':')[1]);
-        double hp = double.Parse(beatmapLines.First(x => x.StartsWith("HPDrainRate")).Split(':')[1]);
+        double cs = double.Parse(beatmapLines.First(x => x.StartsWith("CircleSize")).Split(':')[1], new CultureInfo("en-US"));
+        double ar = double.Parse(beatmapLines.First(x => x.StartsWith("ApproachRate")).Split(':')[1], new CultureInfo("en-US"));
+        double od = double.Parse(beatmapLines.First(x => x.StartsWith("OverallDifficulty")).Split(':')[1], new CultureInfo("en-US"));
+        double hp = double.Parse(beatmapLines.First(x => x.StartsWith("HPDrainRate")).Split(':')[1], new CultureInfo("en-US"));
 
         string[] rawhitobjects = beatmapLines.SkipWhile(x => x != "[HitObjects]").Skip(1).TakeWhile(x => x != "").ToArray();
 
@@ -140,7 +142,7 @@ namespace CursorDancer
         foreach (string raw in rawhitobjects)
           hitobjects.Add(new HitObject(raw));
 
-        infos = new BeatmapInformations(cs, ar, od, hp, hitobjects);
+        infos = new BeatmapInformations(cs, ar, od, hp, hitobjects.ToArray());
       }
       catch (Exception ex)
       {
@@ -169,13 +171,11 @@ namespace CursorDancer
       // Add some required frames
       frames.Insert(0, new ReplayFrame(0, 256, -500, Keys.None)); // idk what that is
       frames.Insert(1, new ReplayFrame(-1, 256, -500, Keys.None)); // idk what that is
-      frames.Insert(2, new ReplayFrame(666666, 666, 666, Keys.None));
-      frames.Add(new ReplayFrame(-12345, 0, 0, Keys.None)); // Add mania random seed (Keys.None = 0)
+      frames.Insert(2, new ReplayFrame(0, 0, 0, Keys.None)); // ???
+      //frames.Add(new ReplayFrame(-12345, 0, 0, Keys.None)); // Add mania random seed (Keys.None = 0)
 
       // convert the replay frames into the raw string, ready to be compressed
       string rawReplayFrames = string.Join(',', frames.Select(x => x.ToString()));
-
-      rawReplayFrames = rawReplayFrames.Replace("666666|666|666|0", $"-300|-48.66667|32|0");
 
       byte[] compressedReplayFrames = SevenZipHelper.Compress(Encoding.UTF8.GetBytes(rawReplayFrames));
 
@@ -198,29 +198,6 @@ namespace CursorDancer
         BeatmapHash = beatmaphash,
         ReplayData = compressedReplayFrames
       };
-
-      /* string hash = string.Join("", MD5.Create().ComputeHash(System.IO.File.ReadAllBytes("C:\\Users\\Niklas\\Desktop\\delis.osu")).Select(x => x.ToString("x2")));
-
-      Replay replay = new Replay()
-      {
-        Count300 = 301,
-        Count100 = 22,
-        Count50 = 0,
-        CountGeki = 46,
-        CountKatu = 15,
-        CountMiss = 7,
-        FullCombo = false,
-        MaxCombo = 343,
-        PlayerName = "minisbett",
-        Mode = 0,
-        Version = 20210316,
-        UsedMods = Mods.None,
-        Score = 1960948,
-        ReplayDate = new DateTime(637521326729822934, DateTimeKind.Utc),
-        PerformanceGraphData = "",
-        BeatmapHash = hash,
-        ReplayData = System.IO.File.ReadAllBytes("C:\\Users\\Niklas\\Desktop\\raw.txt")
-      }; */
 
       byte[] bytes = replay.GetBytes();
       File.WriteAllBytes("C:\\Users\\Niklas\\Desktop\\test.osr", bytes);

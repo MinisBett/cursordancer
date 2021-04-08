@@ -28,6 +28,7 @@ namespace CursorDancer.Models
 
     public OverallDifficulty(double value)
     {
+      // TODO: calculate hit windows
       Value = value;
     }
   }
