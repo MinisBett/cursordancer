@@ -42,9 +42,9 @@ namespace CursorDancer.Models
       X = int.Parse(split[0]);
       Y = int.Parse(split[1]);
       Offset = int.Parse(split[2]);
-      ObjectParams = split[4];
+      ObjectParams = split[5];
 
-      int typeInt = int.Parse(ObjectParams.Split(',')[3]);
+      int typeInt = int.Parse(raw.Split(',')[3]);
 
       foreach(HitObjectType type in Enum.GetValues(typeof(HitObjectType)))
       {
